@@ -26,7 +26,7 @@ $(function(){
 
   var fetchFiddles = function() {
     $.ajax({
-      url: 'http://jsfiddle.net/api/user/iamthor/demo/list.json',  
+      url: 'https://jsfiddle.net/api/user/iamthor/demo/list.json',  
       jsonp: 'jsoncallback',
       dataType: "jsonp",
       success: function( response ) {
