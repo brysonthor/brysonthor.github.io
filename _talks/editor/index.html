@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talk Editor</title>
+  <link rel="icon" type="image/svg+xml" href="/talks/assets/favicon.svg">
+  <link rel="stylesheet" href="/editor/editor.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Talk Editor <span class="local-pill">local only</span></div>
+    <div class="topbar-actions">
+      <span id="status" class="status" role="status"></span>
+      <a class="btn" href="/talks/" target="_blank" rel="noopener">View site (with drafts) ↗</a>
+      <button id="buildBtn" class="btn btn-primary" title="Regenerate ../talks/ (drafts excluded)">Build site</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- Talk list -->
+    <nav class="talk-nav" aria-label="Talks">
+      <button id="newBtn" class="btn btn-primary btn-block">+ New talk</button>
+      <input id="filter" class="filter" type="search" placeholder="Filter talks…" aria-label="Filter talks">
+      <ul id="talkList" class="talk-list"></ul>
+    </nav>
+
+    <!-- Form -->
+    <form id="talkForm" class="editor" autocomplete="off">
+      <div class="form-row">
+        <label class="grow">Title *<input id="f-title" name="title" required placeholder="Come to the Lord in His Holy House"></label>
+        <label class="slug-field">URL slug<input id="f-slug" name="slug" placeholder="auto from title" pattern="[A-Za-z0-9][A-Za-z0-9_\-]*"></label>
+      </div>
+      <div class="form-row">
+        <label class="grow">Speaker<input id="f-speaker" name="speaker" placeholder="Elder Gerrit W. Gong"></label>
+        <label class="grow">Calling / Role<input id="f-role" name="role" placeholder="Of the Quorum of the Twelve Apostles"></label>
+      </div>
+      <div class="form-row">
+        <label class="grow">Date<input id="f-date" name="date" placeholder="October 2026"></label>
+        <label class="grow">Session / Event<input id="f-session" name="session" placeholder="Saturday Morning Session"></label>
+      </div>
+      <label>Summary<input id="f-summary" name="summary" placeholder="Key doctrine or takeaways"></label>
+      <label>Source URL<input id="f-sourceUrl" name="sourceUrl" type="url" placeholder="https://www.churchofjesuschrist.org/…"></label>
+
+      <div class="content-label">
+        <span>Talk content (Markdown with footnotes) *</span>
+        <div class="toolbar">
+          <button type="button" id="footnoteBtn" class="btn btn-small" title="Insert footnote at cursor">+ Footnote [^n]</button>
+          <span class="tip">Use <code>[^1]</code> in text and <code>[^1]: Citation</code> at the bottom</span>
+        </div>
+      </div>
+      <textarea id="f-content" name="content" spellcheck="true" placeholder="Talk text…[^1]&#10;&#10;## Notes&#10;&#10;[^1]: See Moses 1:39."></textarea>
+
+      <div class="form-footer">
+        <label class="checkbox"><input id="f-draft" name="draft" type="checkbox"> Draft (excluded from build)</label>
+        <div class="spacer"></div>
+        <button type="button" id="deleteBtn" class="btn btn-danger">Delete</button>
+        <button type="submit" id="saveBtn" class="btn btn-primary">Save <kbd>⌘S</kbd></button>
+      </div>
+    </form>
+
+    <!-- Live preview -->
+    <section class="preview" aria-label="Live preview">
+      <div class="preview-bar">Live preview <span class="muted">— exactly as it will be built</span></div>
+      <iframe id="preview" title="Talk preview"></iframe>
+    </section>
+  </div>
+
+  <script src="/editor/editor.js"></script>
+</body>
+</html>

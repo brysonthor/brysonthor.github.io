@@ -200,3 +200,28 @@ body {
     transform: translateY(0);
   }
 }
+
+/* "The Net" Easter Egg Pi Icon */
+.easter-egg-pi {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--fg-color);
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity var(--transition-speed), transform var(--transition-speed), color var(--transition-speed);
+  cursor: pointer;
+  user-select: none;
+  z-index: 1000;
+}
+
+.easter-egg-pi:hover,
+.easter-egg-pi:focus-visible {
+  opacity: 1;
+  transform: scale(1.15);
+  outline: none;
+}
+

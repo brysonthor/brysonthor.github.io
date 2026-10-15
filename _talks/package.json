@@ -1,0 +1,17 @@
+{
+  "name": "thornock-talks",
+  "private": true,
+  "type": "module",
+  "description": "Static talk reader generator for thornock.org/talks",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:drafts": "node build.mjs --drafts",
+    "edit": "node editor.mjs",
+    "new": "node new-talk.mjs",
+    "preview": "node build.mjs --drafts && python3 -m http.server 8000 --directory .."
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^18.1.1"
+  }
+}
