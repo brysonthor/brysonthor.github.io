@@ -202,24 +202,27 @@ body {
 }
 
 /* "The Net" Easter Egg Pi Icon */
-.easter-egg-pi {
-  position: fixed;
-  bottom: 1.25rem;
-  right: 1.5rem;
+.easter-egg-pi,
+.easter-egg-pi:visited,
+.easter-egg-pi:active {
+  position: fixed !important;
+  bottom: 1.25rem !important;
+  right: 1.5rem !important;
   font-family: var(--font-serif);
   font-size: 1.5rem;
   line-height: 1;
-  color: var(--fg-color);
-  text-decoration: none;
+  color: #ffffff !important;
+  text-decoration: none !important;
   opacity: 0.85;
-  transition: opacity var(--transition-speed), transform var(--transition-speed), color var(--transition-speed);
+  transition: opacity var(--transition-speed), transform var(--transition-speed);
   cursor: pointer;
   user-select: none;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .easter-egg-pi:hover,
 .easter-egg-pi:focus-visible {
+  color: #ffffff !important;
   opacity: 1;
   transform: scale(1.15);
   outline: none;
